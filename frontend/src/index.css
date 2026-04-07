@@ -1,0 +1,91 @@
+:root {
+  --bg:        #050a10;
+  --bg2:       #080f18;
+  --panel:     #0b1422;
+  --border:    #0f2a45;
+  --cyan:      #00d4ff;
+  --cyan2:     #00ffe7;
+  --red:       #ff2d55;
+  --orange:    #ff6b00;
+  --yellow:    #ffd700;
+  --green:     #00ff8c;
+  --muted:     #3a5c78;
+  --text:      #c8e4f5;
+  --text2:     #5a8caa;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-ui:   'Rajdhani', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color:       var(--text);
+  font-family: var(--font-ui);
+  min-height:  100vh;
+  overflow-x:  hidden;
+}
+
+/* Scanline overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,212,255,0.015) 2px,
+    rgba(0,212,255,0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+
+.tag-critical { color: var(--red); }
+.tag-high     { color: var(--orange); }
+.tag-medium   { color: var(--yellow); }
+.tag-low      { color: var(--green); }
+.tag-none     { color: var(--text2); }
+
+@keyframes pulse-red {
+  0%,100% { box-shadow: 0 0 8px var(--red); }
+  50%      { box-shadow: 0 0 20px var(--red), 0 0 40px rgba(255,45,85,0.3); }
+}
+
+@keyframes glitch {
+  0%,90%,100% { transform: translate(0); }
+  92%         { transform: translate(-2px, 1px); }
+  94%         { transform: translate(2px,-1px); clip-path: inset(20% 0 40% 0); }
+  96%         { transform: translate(-1px, 2px); }
+}
+
+@keyframes scan {
+  0%   { top: -10%; }
+  100% { top: 110%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(10px); }
+  to   { opacity:1; transform: translateY(0); }
+}
