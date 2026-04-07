@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ⬡ CyberChain AI — Cyber Attack Detection + Blockchain Logging
 
 > Real-time AI-powered network threat detection with immutable on-chain audit logging.
@@ -170,3 +171,7 @@ verifyPayload(eventId, hash) → bool
 ## 📄 License
 
 MIT — Free to use and extend.
+=======
+# cybersecurity-ai-blockchain.zip
+“A hybrid security project combining Cybersecurity, AI, and Blockchain to detect threats, secure data, and provide tamper-proof logging. Includes ML-based anomaly detection, smart contracts, and a simple interface for demonstrating modern secure digital systems.”
+>>>>>>> 9d62195d7f88e37ed9aaf89cc161fcae2ffdd238
